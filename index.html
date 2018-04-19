@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 
@@ -190,9 +189,8 @@
 
     #wafield .field div.option select {
         display: block;
-        float: left;
         margin: 5px;
-        width: calc(50% - 10px);
+        width: calc(100% - 10px);
         height: 40px;
         line-height: 40px;
         padding: 0 10px;
@@ -260,7 +258,7 @@
             <a href='#profil'>
       <img src='https://lh3.googleusercontent.com/-KKDl5K32rlE/WtaKsZ9LTXI/AAAAAAAAEnE/gQSTaic6MbgIFlRhIzfXWB9WseMtAvYCACLcBGAs/h40/ava.jpg' alt='ava'/>
     </a>
-            <h4>Kang Rian, Tetangga sebelah.</h4>
+            <h4>Kang Rian</h4>
             <small id='menulis'>Sedang menulis...</small><small id='status'>Online @ <time id='dateTime'></time></small>
         </header>
         <br/>
@@ -283,9 +281,8 @@
                     <option value='Beli Template Blogger "Lite Media"'>Beli Template Blogger "Lite Media"</option>
                     <option value='Konsultasi...'>Konsultasi...</option>
                 </select>
-                <input autocomplete='off' type='email' id='email' placeholder='E-mail..'>
                 <input autocomplete='off' type='text' id='nama' placeholder='Nama..'>
-                <input autocomplete='off' type='text' id='perusahaan' placeholder='Perusahaan (Jika ada)'>
+                <input autocomplete='off' type='email' id='email' placeholder='E-mail..'>
             </div>
             <div id='sendmessage' class='clear'>
                 <input type='tel' name='tel' id='tel' value='+62 896-1888-5066' hidden>
@@ -327,25 +324,28 @@
             alert('Silahkan "Pilih Layanan" sebelum mengirim pesan...');
             $('#pesan').focus();
             return false;
-        } else if ($('#email').val() == '') {
-            alert('Alamat E-mail dibutuhkan...');
+        } else if ($('#nama').val() == '') {
+            alert('Silahkan Tulis "Nama Lengkap" sebelum mengirim pesan...');
             $('#pesan').focus();
             return false;
-        } else if ($('#nama').val() == '') {
-            alert('Silahkan Tulis "Nama Lengkap Anda" sebelum mengirim pesan...');
+        } else if ($('#email').val() == '') {
+            alert('Alamat E-mail dibutuhkan...');
             $('#pesan').focus();
             return false;
         } else if ($('#pesan').val() == '') {
             alert('Silahkan tulis pesan...');
             $('#pesan').focus();
             return false;
-        } else if ($('#perusahaan').val() == '') {
-            $(this).attr('href', 'https://api.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya ' + $('#nama').val() + '.. mau ' + $('#layanan').val() + '%0A%0AE-mail: ' + $('#email').val() + '%0A%0A-%0A%0A' + $('#pesan').val());
-
-            $(this).attr('target', '_blank');
         } else {
-            $(this).attr('href', 'https://api.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya ' + $('#nama').val() + ' dari Perusahaan "' + $('#perusahaan').val() + '".. mau ' + $('#layanan').val() + '%0A%0AE-mail: ' + $('#email').val() + '%0A%0A-%0A%0A' + $('#pesan').val());
-            $(this).attr('target', '_blank');
+            $(this).attr('href', 'https://api.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya ' + $('#nama').val() + '.. mau ' + $('#layanan').val() + '%0A%0AE-mail: ' + $('#email').val() + '%0A%0A' + $('#pesan').val());
+
+            var w = 1000,
+                h = 500,
+                left = Number((screen.width / 2) - (w / 2)),
+                tops = Number((screen.height / 2) - (h / 2)),
+                popupWindow = window.open(this.href, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=1, copyhistory=no, width=' + w + ', height=' + h + ', top=' + tops + ', left=' + left);
+            popupWindow.focus();
+            return false;
         }
     });
 
