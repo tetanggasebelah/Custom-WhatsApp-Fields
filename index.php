@@ -168,7 +168,7 @@
         outline: none;
 
         /* ICON */
-        text-indent: 30px;
+        padding-left: 40px;
         background-color: #fff;
         background-repeat: no-repeat;
         background-size: auto 20px;
@@ -177,10 +177,12 @@
 
     #wafield input#email {
         background-image: url(https://lh3.googleusercontent.com/-mFocT5R7Bn4/WtczsKBCqFI/AAAAAAAAEow/VxtlqCVok-M6AvBcnNTZq0MFFm5plb4eQCLcBGAs/h20/email.png);
+        text-transform:lowercase;
     }
 
     #wafield input#nama {
         background-image: url(https://lh3.googleusercontent.com/-AIQoz3eqd74/WtIab6tY5TI/AAAAAAAAEj0/VSt3vMVeiSoFzAgL9r51aE19mfXLbp-awCEwYBhgL/s20/default-avatar.png);
+        text-transform:capitalize;
     }
 
     #wafield .field div.option select {
@@ -204,7 +206,7 @@
         clear: both;
     }
 
-    #wafield .field textarea {
+    #wafield .field input#pesan {
         display: block;
         float: left;
         width: calc(100% - 80px);
@@ -219,7 +221,7 @@
         overflow: hidden;
     }
 
-    #wafield .field textarea:focus {
+    #wafield .field input#pesan:focus {
         overflow-y: auto;
     }
 
@@ -251,7 +253,7 @@
     <div id='wafield'>
         <audio id="my_audio" src="https://www.tetangga-sebelah.com/whatsapp/whatsapp_ringtone.mp3"></audio>
         <header>
-            <a href='#profil'>
+            <a href='https://kangrian.tetangga-sebelah.com' target='_blank'>
       <img src='https://lh3.googleusercontent.com/-KKDl5K32rlE/WtaKsZ9LTXI/AAAAAAAAEnE/gQSTaic6MbgIFlRhIzfXWB9WseMtAvYCACLcBGAs/h40/ava.jpg' alt='ava'/>
     </a>
             <h4>Kang Rian</h4>
@@ -272,17 +274,17 @@
                     <option value='Optimasi SEO'>Optimasi SEO</option>
                     <option value='Desain Template "Blogger"'>Desain Template "Blogger"</option>
                     <option value='Desain Template "Wordpress"'>Desain Template "Wordpress"</option>
-                    <option value='Beli Template Blogger "PRO-File"'>Beli Template Blogger "PRO-File"</option>
-                    <option value='Beli Template Blogger "Media ID"'>Beli Template Blogger "Media ID"</option>
-                    <option value='Beli Template Blogger "Lite Media"'>Beli Template Blogger "Lite Media"</option>
+                    <option value='Beli Template "PRO-File"'>Beli Template "PRO-File"</option>
+                    <option value='Beli Template "Media ID"'>Beli Template "Media ID"</option>
+                    <option value='Beli Template "Lite Media"'>Beli Template "Lite Media"</option>
                     <option value='Konsultasi...'>Konsultasi...</option>
                 </select>
                 <input autocomplete='off' type='text' id='nama' placeholder='Nama..'>
                 <input autocomplete='off' type='email' id='email' placeholder='E-mail..'>
             </div>
             <div id='sendmessage' class='clear'>
-                <input type='tel' name='tel' id='tel' value='+62 896-1888-5066' hidden>
-                <textarea type='textarea' name='pesan' id='pesan' placeholder='Tulis pesan...'></textarea>
+                <input type='tel' name='tel' id='tel' value='62 896-1888-5066' hidden>
+                <input type='text' name='pesan' id='pesan' placeholder='Tulis pesan...'>
                 <a class='kirimwa' href='javascript:void(0);'></a>
             </div>
         </div>
@@ -314,37 +316,66 @@
         $('#wafield .field div.option').fadeIn();
         $('html, body').animate({ scrollTop: $('#option').offset().top }, 500);
     });
-
-    $('a.kirimwa').click(function() {
-        if ($('#layanan').val() == 'pilihLayanan') {
-            alert('Silahkan "Pilih Layanan" sebelum mengirim pesan...');
-            $('#pesan').focus();
-            return false;
-        } else if ($('#nama').val() == '') {
-            alert('Silahkan Tulis "Nama Lengkap" sebelum mengirim pesan...');
-            $('#pesan').focus();
-            return false;
-        } else if ($('#email').val() == '') {
-            alert('Alamat E-mail dibutuhkan...');
-            $('#pesan').focus();
-            return false;
-        } else if ($('#pesan').val() == '') {
-            alert('Silahkan tulis pesan...');
-            $('#pesan').focus();
-            return false;
-        } else {
-            $(this).attr('href', 'https://api.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya ' + $('#nama').val() + '.. mau ' + $('#layanan').val() + '%0A%0AE-mail: ' + $('#email').val() + '%0A%0A' + $('#pesan').val());
-
-            var w = 1000,
-                h = 500,
-                left = Number((screen.width / 2) - (w / 2)),
-                tops = Number((screen.height / 2) - (h / 2)),
-                popupWindow = window.open(this.href, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=1, copyhistory=no, width=' + w + ', height=' + h + ', top=' + tops + ', left=' + left);
-            popupWindow.focus();
-            return false;
-        }
+    
+    var kirimWA = function() {
+            
+            if ($('#layanan').val() == 'pilihLayanan') {
+                alert('Silahkan "Pilih Layanan" sebelum mengirim pesan...');
+                $('#pesan').focus();
+                return false;
+            } else if ($('#nama').val() == '') {
+                alert('Mohon tulis "Nama Lengkap" sebelum mengirim pesan...');
+                $('#pesan').focus();
+                return false;
+            } else if ($('#email').val() == '') {
+                alert('Alamat E-mail dibutuhkan...');
+                $('#pesan').focus();
+                return false;
+            } else if ($('#pesan').val() == '') {
+                alert('Silahkan tulis pesan...');
+                $('#pesan').focus();
+                return false;
+            } else {
+                        
+                <?php
+                    $iphone = strpos($_SERVER['HTTP_USER_AGENT'],"iPhone");
+                    $android = strpos($_SERVER['HTTP_USER_AGENT'],"Android");
+                    $palmpre = strpos($_SERVER['HTTP_USER_AGENT'],"webOS");
+                    $berry = strpos($_SERVER['HTTP_USER_AGENT'],"BlackBerry");
+                    $ipod = strpos($_SERVER['HTTP_USER_AGENT'],"iPod");
+                    
+                    // check if is a mobile
+                    if ($iphone || $android || $palmpre || $ipod || $berry == true)
+                    {
+                     echo "
+                        $(this).attr('href', 'https://api.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya *' + $('#nama').val() + '*.. mau *' + $('#layanan').val() + '*.%0A%0A📨 E-mail: ' + $('#email').val() + '%0A%0A_Pesan tambahan:_%0A' + $('#pesan').val());
+                     ";
+                    }
+                    
+                    // all others
+                    else {
+                     echo "
+                        $(this).attr('href', 'https://web.whatsapp.com/send?phone=' + $('#tel').val() + '&text=Assallamu`alaikum kang, saya *' + $('#nama').val() + '*.. mau *' + $('#layanan').val() + '*.%0A%0A📨 E-mail: ' + $('#email').val() + '%0A%0A_Pesan tambahan:_%0A' + $('#pesan').val());
+                     ";
+                    }
+                ?>
+                
+                var w = 1000,
+                    h = 500,
+                    left = Number((screen.width / 2) - (w / 2)),
+                    tops = Number((screen.height / 2) - (h / 2)),
+                    popupWindow = window.open(this.href, '', 'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=1, copyhistory=no, width=' + w + ', height=' + h + ', top=' + tops + ', left=' + left);
+                popupWindow.focus();
+                return false;
+            }
+    };
+    
+    $("input").keypress(function() {
+        if (event.which == 13) kirimWA();
     });
-
+    
+    $('a.kirimwa').click(kirimWA);
+    
     var today = new Date();
     var date = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
     var time = today.getHours() + ":" + today.getMinutes('ms');
@@ -353,6 +384,7 @@
     document.getElementById('dateTime').innerHTML = dateTime;
     document.getElementById('chatTime').innerHTML = time;
     </script>
+    <script>
 </body>
 
 </html>
