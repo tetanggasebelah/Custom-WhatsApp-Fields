@@ -13,6 +13,14 @@
     <title>WhatsApp</title>
     <link id="favicon" rel="shortcut icon" href="https://lh3.googleusercontent.com/-Mv1YtcN8KiY/WtlP_aau1aI/AAAAAAAAEqU/MNjWDNvX2g4xNDUQz_TUSkBqjpTyP6bfgCLcBGAs/s16/favicon.png" type="image/png" />
     <link rel="apple-touch-icon" sizes="194x194" href="https://lh3.googleusercontent.com/-ZpLh_SOYcbA/WtlP_JvwW_I/AAAAAAAAEqM/nnCl0P5F2hITNu4eAnGkOsTKWscNDzzOwCLcBGAs/s194/apple-touch-icon.png" type="image/png" />
+    
+    <meta name="google" content="notranslate">
+    <meta name="description" content="Hubungi Kang Rian (Tetangga sebelah) melalui WhatsApp, dari Komputer atau Smartphone.">
+    <meta name="og:description" content="Hubungi Kang Rian (Tetangga sebelah) melalui WhatsApp, dari Komputer atau Smartphone."/>
+    <meta name="og:url" content="https://www.tetangga-sebelah.com/whatsapp/"/>
+    <meta name="og:title" content="WhatsApp"/>
+    <meta name="og:image" content="https://lh3.googleusercontent.com/-amyq2KIPl-8/WtlR2C3St5I/AAAAAAAAEqg/Xtm9zVXchgAYiFSQmdYxxNqG-kqPizeTACLcBGAs/w1200-h630/whatsapp-promo.png"/>
+
     <style type="text/css">
     *,
     *:before,
