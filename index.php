@@ -11,8 +11,8 @@
     <meta name="googlebot" content="index, follow">
     <meta name="google" content="notranslate">
     <title>WhatsApp</title>
-    <link id="favicon" rel="shortcut icon" href="https://web.whatsapp.com/img/favicon/1x/favicon.png" type="image/png" />
-    <link rel="apple-touch-icon" sizes="194x194" href="https://web.whatsapp.com/apple-touch-icon.png" type="image/png" />
+    <link id="favicon" rel="shortcut icon" href="https://lh3.googleusercontent.com/-Mv1YtcN8KiY/WtlP_aau1aI/AAAAAAAAEqU/MNjWDNvX2g4xNDUQz_TUSkBqjpTyP6bfgCLcBGAs/s16/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" sizes="194x194" href="https://lh3.googleusercontent.com/-ZpLh_SOYcbA/WtlP_JvwW_I/AAAAAAAAEqM/nnCl0P5F2hITNu4eAnGkOsTKWscNDzzOwCLcBGAs/s194/apple-touch-icon.png" type="image/png" />
     <style type="text/css">
     *,
     *:before,
@@ -300,6 +300,10 @@
         var notif = document.getElementById("my_audio");
         setTimeout(function() { notif.play(); }, 2000);
 
+        setTimeout(function() {
+            $("#favicon").attr("href","https://lh3.googleusercontent.com/-3K_IUSGph20/WtlP_YWLXeI/AAAAAAAAEqQ/1l7iZK1PFhkVpgOwg7hY1AnuDxARdiVhwCLcBGAs/s16/favicon1.png");
+        }, 2000);
+        
         $("#menulis").delay(1000).fadeIn(0);
         $("#status").delay(1000).fadeOut(0);
 
@@ -309,6 +313,10 @@
         $(".c2").delay(6000).animate({ opacity: "1" }, 0);
         var notiff = document.getElementById("my_audio");
         setTimeout(function() { notiff.play(); }, 6000);
+
+        setTimeout(function() {
+            $("#favicon").attr("href","https://lh3.googleusercontent.com/-8ubwKViGbhY/WtlOdZQ9lRI/AAAAAAAAEqA/5Uc0JgHGhAMqZIZfsRiNgFHACg7SlJTwwCLcBGAs/s16/favicon2.png");
+        }, 6000);
 
     });
 
