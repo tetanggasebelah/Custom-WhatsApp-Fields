@@ -309,7 +309,11 @@
         setTimeout(function() { notif.play(); }, 2000);
 
         setTimeout(function() {
+
             $("#favicon").attr("href","https://lh3.googleusercontent.com/-3K_IUSGph20/WtlP_YWLXeI/AAAAAAAAEqQ/1l7iZK1PFhkVpgOwg7hY1AnuDxARdiVhwCLcBGAs/s16/favicon1.png");
+
+            $(document).prop('title', '(1) WhatsApp');
+
         }, 2000);
         
         $("#menulis").delay(1000).fadeIn(0);
@@ -323,7 +327,11 @@
         setTimeout(function() { notiff.play(); }, 6000);
 
         setTimeout(function() {
+
             $("#favicon").attr("href","https://lh3.googleusercontent.com/-8ubwKViGbhY/WtlOdZQ9lRI/AAAAAAAAEqA/5Uc0JgHGhAMqZIZfsRiNgFHACg7SlJTwwCLcBGAs/s16/favicon2.png");
+
+            $(document).prop('title', '(2) WhatsApp');
+
         }, 6000);
 
     });
